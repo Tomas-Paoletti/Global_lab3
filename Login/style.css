@@ -1,0 +1,31 @@
+:root {
+  --dark: #16191c;
+  --dark-x: #1e2126;
+  --blanco: #ffffff;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  color: var(--blanco) !important;
+}
+
+.bg-dark {
+  background-color: var(--dark) !important ;
+}
+.bg-dark-x {
+  background-color: var(--dark-x) !important;
+}
+.form-control,
+.btn {
+  min-height: 3.123rem;
+  line-height: initial;
+}
+.btn {
+  margin-top: 1rem;
+}
+.logo {
+  margin-left: 33%;
+}
+.titulo {
+  margin-left: 22%;
+}
