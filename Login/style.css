@@ -29,3 +29,6 @@ body {
 .titulo {
   margin-left: 22%;
 }
+input,select,textarea{
+  color: white !important;
+}
