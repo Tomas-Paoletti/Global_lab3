@@ -1,21 +1,24 @@
 <?php
-$dbhost= "sql10.freemysqlhosting.net";
-$dbuser ="sql10491482";
-$dbpass ="IIdqIIQD1I";
-$dbname = "sql10491482";
+$dbhost= "localhost";
+$dbuser ="root";
+$dbpass ="";
+$dbname = "checkinventory";
 
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+$conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 if(!$conn){
-    die("no hya conexion: ".mysqli_connect_error());
+    die("no hay conexion: ".mysqli_connect_error());
 }
 
 $email= $_POST["email"];
 $pass = $_POST["contraseña"];
 
-$query = mysqli_query($conn,"SELECT * FROM Usuarios WHERE mailusuario = '".$email."' and contrasena ='".$pass."'");
+$query = mysqli_query($conn,"SELECT * FROM usuario WHERE email = '".$email."' and password ='".$pass."'");
 $nro = mysqli_num_rows($query);
 if($nro == 1){
     echo "bienvenido";
+}else{
+    echo"fuck";
 }
 ?>
