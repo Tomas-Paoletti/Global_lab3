@@ -1,3 +1,20 @@
+<?php
+$dbhost= "localhost";
+$dbuser ="root";
+$dbpass ="";
+$dbname = "checkinventory";
+$conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+if(!$conn){
+    die("no hay conexion: ".mysqli_connect_error());
+}
+$consulta= "SELECT * FROM productos";
+$guardar = $conn->query($consulta);
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -47,15 +64,32 @@
               <h1>Inventariado de productos</h1>
           </div>
 
-          <div class="table-responsive table-hover" id="tabla-productos">
+          <div class="table-responsive table-hover" id="Tabla-productos">
               <table class="table">
                   <thead class="text-muted">
+                        <th class="text-center">ID</th>
                         <th class="text-center">Nombre Producto</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Marca</th>
                         <th class="text-center">Precio</th>
+                        <th class="text-center">Opciones</th>
                   </thead>
+                  <tbody>
+                    <?php
+                    while($row =$guardar->fetch_assoc()){ ?>
+                      <tr>
+                        <td class="text-center"> <?php echo $row['id'];?></td>
+                        <td class="text-center"> <?php echo $row['Producto'];?></td>
+                        <td class="text-center"> <?php echo $row['Descripcion'];?></td>
+                        <td class="text-center"> <?php echo $row['Marca'];?></td>
+                        <td class="text-center"> <?php echo $row['Precio'];?></td>
+                        <!-- pasamos los datos de esa fila a travez del campo id -->
+                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar</a>- <a href="#">Borrar</a></td>
+                      </tr>
+                    <?php } ?>
+                  </tbody>
               </table>
+
           </div>
 
     

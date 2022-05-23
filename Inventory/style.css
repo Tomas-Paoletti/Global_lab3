@@ -1,24 +1,27 @@
-.navbar-brand{
-    margin-left: 30%;
+.navbar-brand {
+  margin-left: 30%;
 }
-.d-flex{
-    margin-right: 3rem;
+.d-flex {
+  margin-right: 3rem;
 }
-.btn{
-    margin-right: 5rem !important;
-    
+.btn {
+  margin-right: 5rem !important;
 }
-.titulo{
-    margin-top: 3rem !important;
-    width: 35rem !important;
-    height: 6rem !important;
-   
-   margin: 0 auto;
+.titulo {
+  margin-top: 3rem !important;
+  width: 35rem !important;
+  height: 4rem !important;
+
+  margin: 0 auto;
 }
-h1{
-    height: 4rem !important;
-    border-style: solid !important;
-    border-color: black !important;
-    border-radius: 30px !important;
-    text-align: center;
+h1 {
+  height: 4rem !important;
+  border-style: solid !important;
+  border-color: black !important;
+  border-radius: 30px !important;
+  text-align: center;
+}
+.boton {
+  width: 100%;
+  margin: 0 auto !important;
 }
