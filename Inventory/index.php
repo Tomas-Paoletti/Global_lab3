@@ -47,7 +47,7 @@ $guardar = $conn->query($consulta);
               
                 <div class="d-flex">
                   
-                  <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button>
+                 <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
                   <button
                   type="button"
                   class="btn btn-lg btn-outline-primary "
@@ -64,9 +64,10 @@ $guardar = $conn->query($consulta);
               <h1>Inventariado de productos</h1>
           </div>
 
-          <div class="table-responsive table-hover" id="Tabla-productos">
+          <div class="table-responsive table-hover table-dark" id="Tabla-productos">
+            <br>
               <table class="table">
-                  <thead class="text-muted">
+                  <thead class="text-muted table-dark">
                         <th class="text-center">ID</th>
                         <th class="text-center">Nombre Producto</th>
                         <th class="text-center">Descripcion</th>

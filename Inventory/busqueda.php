@@ -39,7 +39,7 @@ $resultado= $conn->query($consulta);
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../Home/home.html">
+                <a class="navbar-brand" href="index.php">
                     <img
                       src="../img/logo check inventory.png"
                       alt=""
@@ -82,8 +82,8 @@ $resultado= $conn->query($consulta);
     
     <div class="table-responsive table-hover" id="Tabla-productos">
         <?php if($resultado->num_rows>0){ ?>
-              <table class="table">
-                  <thead class="text-muted">
+              <table class="table ">
+                  <thead class="text-muted table-dark">
                         <th class="text-center">ID</th>
                         <th class="text-center">Nombre Producto</th>
                         <th class="text-center">Descripcion</th>
