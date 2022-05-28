@@ -25,8 +25,18 @@ h1 {
   width: 100%;
   margin: 0 auto !important;
 }
-table{
+table {
   margin-left: 10% !important;
   width: 80% !important;
+  border-radius: 15px !important;
+}
+.row {
+  margin-left: 10% !important;
+  width: 80% !important;
+  margin-top: 1.5rem !important;
+}
+
+input {
+  height: 2.5rem;
   border-radius: 15px !important;
 }

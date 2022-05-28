@@ -54,13 +54,9 @@ $resultado= $conn->query($consulta);
               
                 <div class="d-flex">
                   
-                  
+                <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
                  <a href="../Home/home.html
-                 "> <button
-                  type="button"
-                  class="btn btn-lg btn-outline-primary "
-                >
-                  Salir
+                 "> <button type="button" class="btn btn-lg btn-outline-primary ">Salir
                 </button>
                 </a>
             </div>
@@ -100,7 +96,7 @@ $resultado= $conn->query($consulta);
                         <td class="text-center"> <?php echo $row['Descripcion'];?></td>
                         <td class="text-center"> <?php echo $row['Marca'];?></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
-                        <td class="text-center"> <a href="#">Editar</a>- <a href="#">Borrar</a></td>
+                        <td class="text-center">  <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?>">Borrar</a></td>
                       </tr>
                     <?php } ?>
                   </tbody>

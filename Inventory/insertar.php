@@ -15,24 +15,23 @@ if(!isset($usuario)){
 if(!$conn){
     die("no hay conexion: ".mysqli_connect_error());
 }
-$id= $_GET['id'];
-$modificar= "SELECT * FROM productos WHERE id='$id' ";
 
-$m = $conn->query($modificar);
-$dato = $m->fetch_array();
-if(isset($_POST['modificar'])){
-    //extraer los datos del formulario 
-$id= $_POST['id'];
+
+
+//esta sentencia lo que hace es ver si ya se ha pulsado el boton de submit (agregar es el name del input submit)
+if(isset($_POST['agregar'])){
+//extraer los datos del formulario 
+
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 $precio= $conn->real_escape_string($_POST['Precio']);
 //hacer query para modifiacr los datos de la tabla
-$actualizaq= "UPDATE productos SET Producto= '$nProducto', Descripcion = '$descripcion', Marca = '$marca', Precio = '$precio'   WHERE id = '$id' ";
-$actualizar= $conn->query($actualizaq);
+$insertarQuery= "INSERT INTO productos VALUES( '' , '$nProducto', '$descripcion', '$marca', '$precio'  )";
+$insertar= $conn->query($insertarQuery);
 header("location:index.php");
-
 }
+
 ?>
 
 
@@ -69,11 +68,8 @@ header("location:index.php");
               
                 <div class="d-flex">
                   
-                 <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
-                  <button
-                  type="button"
-                  class="btn btn-lg btn-outline-primary "
-                >
+                 <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
+                 <a href="../Home/home.html"> <button  type="button" class="btn btn-lg btn-outline-primary "></a>
                   Salir
                 </button>
             </div>
@@ -83,25 +79,30 @@ header("location:index.php");
    
 
           <div class="titulo">
-              <h1>Modificar producto</h1>
+              <h1>Agregar producto</h1>
           </div>
 
          <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <div class="row">
-            <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
-            <input type="text" name="Producto" value="<?php echo $dato['Producto']?>" class="form-control" placeholder="Nombre del producto" required>
+           
+            <input type="text" name="Producto"  class="form-control" placeholder="Nombre del producto" required>
+            <br>
         </div>
         <div class="row">
-            <input type="text" name="Descripcion" value="<?php echo $dato['Descripcion']?>" class="form-control" placeholder="Descripcion del producto" required>
+            <input type="text" name="Descripcion"  class="form-control" placeholder="Descripcion del producto" required>
+            <br>
         </div>
         <div class="row">
-            <input type="text" name="Marca" value="<?php echo $dato['Marca']?>" class="form-control" placeholder="Marca" required>
+            <input type="text" name="Marca" class="form-control" placeholder="Marca" required>
+            <br>
         </div>
         <div class="row">
-           <input type="number" name="Precio" value="<?php echo $dato['Precio']?>" placeholder="Precio del producto" required>
+        <br>
+           <input type="number" name="Precio"  placeholder="Precio del producto" required>
+           
         </div>
         <div class="row">
-            <input type="submit" name="modificar" value="modificar" class="btn btn-success " >
+            <input type="submit" name="agregar" value="agregar" class="btn btn-success " >
         </div>
         </form>
 

@@ -48,12 +48,8 @@ $guardar = $conn->query($consulta);
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                  <button
-                  type="button"
-                  class="btn btn-lg btn-outline-primary "
-                >
-                  Salir
-                </button>
+                  <a href="../Home/home.html"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
+                  <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
             </div>
               </div>
             </div>
@@ -66,7 +62,7 @@ $guardar = $conn->query($consulta);
 
           <div class="table-responsive table-hover table-dark" id="Tabla-productos">
             <br>
-              <table class="table">
+              <table class="table ">
                   <thead class="text-muted table-dark">
                         <th class="text-center">ID</th>
                         <th class="text-center">Nombre Producto</th>
@@ -85,7 +81,7 @@ $guardar = $conn->query($consulta);
                         <td class="text-center"> <?php echo $row['Marca'];?></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
                         <!-- pasamos los datos de esa fila a travez del campo id -->
-                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar</a>- <a href="#">Borrar</a></td>
+                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?>">Borrar</a></td>
                       </tr>
                     <?php } ?>
                   </tbody>
