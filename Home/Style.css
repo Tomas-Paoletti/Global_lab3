@@ -4,10 +4,10 @@
   --text: #000;
 }
 [data-theme="dark"] {
-  --primary: #e9833e;
+  --primary: #003a6b;
   --background: #000;
   --text: #fff;
-  --terciary: #003a6b;
+  
 }
 
 body {
@@ -18,7 +18,8 @@ body {
 }
 
 .navbar {
-  background-color: var(--terciary) !important;
+  background-color: var(--primary) !important;
+
 }
 .logo-image {
   margin-left: 6rem;
@@ -32,6 +33,9 @@ body {
   margin-left: 3rem;
   margin-top: 3rem;
   border-radius: 10px;
+}
+.btn-light{
+  margin-left: 70rem !important;
 }
 .titulo {
   font-size: 1.5rem;
@@ -47,6 +51,9 @@ body {
   text-align: center;
 }
 
+.tema{
+  margin:  0 auto;
+}
 .img-card {
   height: 5rem !important;
   width: 5rem !important;
@@ -60,7 +67,7 @@ body {
   border-color: black !important;
 }
 .card {
-  background-color: var(--terciary) !important;
+  background-color: var(--primary) !important;
 }
 footer {
   margin-top: 3re;

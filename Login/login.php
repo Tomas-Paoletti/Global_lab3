@@ -21,10 +21,12 @@ $query = mysqli_query($conn,"SELECT * FROM usuario WHERE email = '$email' and pa
 $nro = mysqli_num_rows($query);
 if($nro == 1){
    $_SESSION['login']='administrador';
-   echo'sesion creeada';
     header("location:../Inventory/index.php");
 }else{
-    echo'hola';
-   header("location: http://localhost/Facultad/Global_lab3/Inventory/index.php");
+    
+    echo "<script>alert('Hola');
+        window.location =  'http://localhost/Facultad/Global_lab3/Login/index.html';  
+    </script>";
+ //   header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
 }
 ?>
