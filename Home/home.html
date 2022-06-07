@@ -20,9 +20,10 @@
     />
     <title>Home Check Inventory</title>
     <!-- o check box-->
+    <script src="modoOscuro.js" type="text/javascript" defer></script>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img
@@ -40,9 +41,15 @@
             class="btn btn btn-outline-primary boton-iniciar-seision"
           >
             Iniciar Sesión
-          </button></a>
+          </button></a
+        >
+        <label class="switch">
+          <input type="checkbox" id="slider" checked />
+          <span class="slider"></span>
+        </label>
       </div>
     </nav>
+
     <div class="row g-0">
       <div class="col-lg-5 div-titulo">
         <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
@@ -99,5 +106,10 @@
     <footer>
       <p>Derechos reservados check inventory</p>
     </footer>
+
+    <script>
+      const bdark = document.querySelector("#bdark");
+      bdark.addEventListener("click", (e) => {});
+    </script>
   </body>
 </html>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['login'])){
+  header("location:../Login/login.html");
+}
 $dbhost= "localhost";
 $dbuser ="root";
 $dbpass ="";
@@ -26,8 +29,9 @@ $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 $precio= $conn->real_escape_string($_POST['Precio']);
+$cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
-$insertarQuery= "INSERT INTO productos VALUES( '' , '$nProducto', '$descripcion', '$marca', '$precio'  )";
+$insertarQuery= "INSERT INTO productos VALUES( '' , '$nProducto', '$descripcion', '$marca', '$precio', '$Cantidad'  )";
 $insertar= $conn->query($insertarQuery);
 header("location:index.php");
 }
@@ -99,6 +103,11 @@ header("location:index.php");
         <div class="row">
         <br>
            <input type="number" name="Precio"  placeholder="Precio del producto" required>
+           
+        </div>
+        <div class="row">
+        <br>
+           <input type="number" name="Cantidad"  placeholder="Precio del producto" required>
            
         </div>
         <div class="row">

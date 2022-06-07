@@ -1,15 +1,24 @@
 <?php
-$dbhost= "localhost";
-$dbuser ="root";
-$dbpass ="";
-$dbname = "checkinventory";
-$conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+session_start();
 
-if(!$conn){
-    die("no hay conexion: ".mysqli_connect_error());
+if(isset($_SESSION['login'])){
+  $dbhost= "localhost";
+  $dbuser ="root";
+  $dbpass ="";
+  $dbname = "checkinventory";
+  $conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+  
+  if(!$conn){
+      die("no hay conexion: ".mysqli_connect_error());
+  }
+  $consulta= "SELECT * FROM productos";
+  $guardar = $conn->query($consulta);
+}else{
+  header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
 }
-$consulta= "SELECT * FROM productos";
-$guardar = $conn->query($consulta);
+
+
 
 ?>
 
@@ -69,7 +78,9 @@ $guardar = $conn->query($consulta);
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Marca</th>
                         <th class="text-center">Precio</th>
+                        <th class="text-center">Cantidad</th>
                         <th class="text-center">Opciones</th>
+                        
                   </thead>
                   <tbody>
                     <?php
@@ -80,6 +91,7 @@ $guardar = $conn->query($consulta);
                         <td class="text-center"> <?php echo $row['Descripcion'];?></td>
                         <td class="text-center"> <?php echo $row['Marca'];?></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
+                        <td class="text-center"> <?php echo $row['Cantidad'];?></td>
                         <!-- pasamos los datos de esa fila a travez del campo id -->
                         <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?>">Borrar</a></td>
                       </tr>

@@ -1,15 +1,13 @@
 <?php
 session_start();
+
+
 $dbhost= "localhost";
 $dbuser ="root";
 $dbpass ="";
 $dbname = "checkinventory";
 $conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-/* sesiones
-$usuario = $_SESSION['Usuario'];
-if(!isset($usuario)){
-    header("location:../Login/login.html");
-}*/
+
 
 
 if(!$conn){
@@ -27,11 +25,15 @@ $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 $precio= $conn->real_escape_string($_POST['Precio']);
+$cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
-$actualizaq= "UPDATE productos SET Producto= '$nProducto', Descripcion = '$descripcion', Marca = '$marca', Precio = '$precio'   WHERE id = '$id' ";
+$actualizaq= "UPDATE productos SET Producto= '$nProducto', Descripcion = '$descripcion', Marca = '$marca', Precio = '$precio' , Cantidad='$cantidad'  WHERE id = '$id' ";
 $actualizar= $conn->query($actualizaq);
 header("location:index.php");
 
+}
+if(!isset($_SESSION['login'])){
+  header("location:../Login/login.html");
 }
 ?>
 
@@ -101,8 +103,14 @@ header("location:index.php");
            <input type="number" name="Precio" value="<?php echo $dato['Precio']?>" placeholder="Precio del producto" required>
         </div>
         <div class="row">
+        <br>
+           <input type="number" name="Cantidad"  placeholder="Cantidad del producto" required>
+           
+        </div>
+        <div class="row">
             <input type="submit" name="modificar" value="modificar" class="btn btn-success " >
         </div>
+        
         </form>
 
     
