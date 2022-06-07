@@ -8,11 +8,7 @@ $dbuser ="root";
 $dbpass ="";
 $dbname = "checkinventory";
 $conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-/* sesiones
-$usuario = $_SESSION['Usuario'];
-if(!isset($usuario)){
-    header("location:../Login/login.html");
-}*/
+
 
 
 if(!$conn){
@@ -31,7 +27,7 @@ $marca= $conn->real_escape_string($_POST['Marca']);
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
-$insertarQuery= "INSERT INTO productos VALUES( '' , '$nProducto', '$descripcion', '$marca', '$precio', '$Cantidad'  )";
+$insertarQuery= "INSERT INTO productos( `Producto`, `Descripcion`, `Marca`, `Precio`, `Cantidad`) VALUES(  '$nProducto', '$descripcion', '$marca', '$precio', '$cantidad'  )";
 $insertar= $conn->query($insertarQuery);
 header("location:index.php");
 }
