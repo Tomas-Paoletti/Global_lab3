@@ -13,21 +13,23 @@ $conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 if(!$conn){
     die("no hay conexion: ".mysqli_connect_error());
 }
-$id= $_GET['id'];
+$id= $_REQUEST['id'];
 $modificar= "SELECT * FROM productos WHERE id='$id' ";
 
 $m = $conn->query($modificar);
 $dato = $m->fetch_array();
+
 if(isset($_POST['modificar'])){
     //extraer los datos del formulario 
-$id= $_POST['id'];
+//$id= $conn->$_REQUEST['id'];
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
+$foto=$conn->real_escape_string(file_get_contents($_FILES['Foto']['tmp_name']));
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
-$actualizaq= "UPDATE productos SET Producto= '$nProducto', Descripcion = '$descripcion', Marca = '$marca', Precio = '$precio' , Cantidad='$cantidad'  WHERE id = '$id' ";
+$actualizaq= "UPDATE productos SET Producto= '$nProducto', Descripcion = '$descripcion', Marca = '$marca', Foto = '$foto',  Precio = '$precio' , Cantidad='$cantidad'  WHERE id = '$id' ";
 $actualizar= $conn->query($actualizaq);
 header("location:index.php");
 
@@ -88,7 +90,7 @@ if(!isset($_SESSION['login'])){
               <h1>Modificar producto</h1>
           </div>
 
-         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
         <div class="row">
             <input type="hidden" name="id" value="<?php echo $dato['id']; ?>">
             <input type="text" name="Producto" value="<?php echo $dato['Producto']?>" class="form-control" placeholder="Nombre del producto" required>
@@ -98,6 +100,12 @@ if(!isset($_SESSION['login'])){
         </div>
         <div class="row">
             <input type="text" name="Marca" value="<?php echo $dato['Marca']?>" class="form-control" placeholder="Marca" required>
+        </div>
+        
+        <div class="row">
+        <img  width="100px" src="data:image/jpg;base64 ,<?php echo base64_encode($dato['Foto']);?> " />
+        
+        <input type="file" name="Foto">
         </div>
         <div class="row">
            <input type="number" name="Precio" value="<?php echo $dato['Precio']?>" placeholder="Precio del producto" required>

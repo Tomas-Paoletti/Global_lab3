@@ -25,6 +25,13 @@ h1 {
   width: 100%;
   margin: 0 auto !important;
 }
+.foto {
+  width: auto !important;
+  height: auto !important;
+}
+.tema {
+  margin: 0 auto;
+}
 table {
   margin-left: 10% !important;
   width: 80% !important;

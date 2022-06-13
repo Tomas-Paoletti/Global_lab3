@@ -7,7 +7,6 @@
   --primary: #003a6b;
   --background: #000;
   --text: #fff;
-  
 }
 
 body {
@@ -19,7 +18,6 @@ body {
 
 .navbar {
   background-color: var(--primary) !important;
-
 }
 .logo-image {
   margin-left: 6rem;
@@ -34,7 +32,7 @@ body {
   margin-top: 3rem;
   border-radius: 10px;
 }
-.btn-light{
+.btn-light {
   margin-left: 70rem !important;
 }
 .titulo {
@@ -51,9 +49,7 @@ body {
   text-align: center;
 }
 
-.tema{
-  margin:  0 auto;
-}
+
 .img-card {
   height: 5rem !important;
   width: 5rem !important;

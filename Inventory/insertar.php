@@ -24,10 +24,12 @@ if(isset($_POST['agregar'])){
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
+//$foto=$conn->real_escape_string($_POST);
+$foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
-$insertarQuery= "INSERT INTO productos( `Producto`, `Descripcion`, `Marca`, `Precio`, `Cantidad`) VALUES(  '$nProducto', '$descripcion', '$marca', '$precio', '$cantidad'  )";
+$insertarQuery= "INSERT INTO productos( `Producto`, `Descripcion`, `Marca`, `Foto`, `Precio`, `Cantidad`) VALUES(  '$nProducto', '$descripcion', '$marca', '$foto', '$precio', '$cantidad'  )";
 $insertar= $conn->query($insertarQuery);
 header("location:index.php");
 }
@@ -82,7 +84,7 @@ header("location:index.php");
               <h1>Agregar producto</h1>
           </div>
 
-         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
         <div class="row">
            
             <input type="text" name="Producto"  class="form-control" placeholder="Nombre del producto" required>
@@ -103,7 +105,12 @@ header("location:index.php");
         </div>
         <div class="row">
         <br>
-           <input type="number" name="Cantidad"  placeholder="Precio del producto" required>
+           <input type="number" name="Cantidad"  placeholder="Cantidad del producto" required>
+           
+        </div>
+        <div class="row">
+        <br>
+           <input type="file" name="Foto"  placeholder="Insertar imagen del producto" >
            
         </div>
         <div class="row">

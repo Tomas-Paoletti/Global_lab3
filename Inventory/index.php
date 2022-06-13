@@ -77,6 +77,7 @@ if(isset($_SESSION['login'])){
                         <th class="text-center">Nombre Producto</th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Marca</th>
+                        <th class="text-center">Foto</th>
                         <th class="text-center">Precio</th>
                         <th class="text-center">Cantidad</th>
                         <th class="text-center">Opciones</th>
@@ -90,10 +91,11 @@ if(isset($_SESSION['login'])){
                         <td class="text-center"> <?php echo $row['Producto'];?></td>
                         <td class="text-center"> <?php echo $row['Descripcion'];?></td>
                         <td class="text-center"> <?php echo $row['Marca'];?></td>
+                        <td class="text-center "> <img  width="100px" src="data:image/jpg;base64 ,<?php echo base64_encode($row['Foto']);?> " /></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
                         <td class="text-center"> <?php echo $row['Cantidad'];?></td>
                         <!-- pasamos los datos de esa fila a travez del campo id -->
-                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?>">Borrar</a></td>
+                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?> ">Borrar</a></td>
                       </tr>
                     <?php } ?>
                   </tbody>
