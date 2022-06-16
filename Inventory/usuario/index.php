@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if(isset($_SESSION['usuario'])){
+if(!isset($_SESSION['usuario'])){
+  
+  header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
+}
   $dbhost= "localhost";
   $dbuser ="root";
   $dbpass ="";
@@ -14,9 +17,7 @@ if(isset($_SESSION['usuario'])){
   }
   $consulta= "SELECT * FROM productos";
   $guardar = $conn->query($consulta);
-}else{
-  header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
-}
+
 
 $cant_filas= mysqli_num_rows($guardar);
 $articulos_por_pagina=6;

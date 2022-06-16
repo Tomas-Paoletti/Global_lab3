@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-if(isset($_SESSION['administrador'])){
+if(!isset($_SESSION['administrador'])){
+  header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
+}
   $dbhost= "localhost";
   $dbuser ="root";
   $dbpass ="";
@@ -14,9 +16,8 @@ if(isset($_SESSION['administrador'])){
   }
   $consulta= "SELECT * FROM productos";
   $guardar = $conn->query($consulta);
-}else{
-  header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
-}
+
+  
 
 
 

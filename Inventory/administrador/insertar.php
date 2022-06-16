@@ -26,7 +26,7 @@ $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 //$foto=$conn->real_escape_string($_POST);
 
-if(empty($_FILES==0)){
+if($_FILES==0){
   $foto= '../../img/productos-Foto (1).bin';
 }else{
 $foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
