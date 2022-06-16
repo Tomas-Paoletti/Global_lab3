@@ -55,9 +55,9 @@ header("location:index.php");
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../Home/home.html">
+                <a class="navbar-brand" href="../administrador/index.php">
                     <img
-                      src="../img/logo check inventory.png"
+                      src="../../img/logo check inventory.png"
                       alt=""
                       width="100"
                       height="100"

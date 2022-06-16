@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['login'])){
-  header("location:../Login/login.html");
+  header("location:http://localhost/Facultad/Global_lab3/Login/index.html");
 }
 
 $dbhost= "localhost";
@@ -43,9 +43,9 @@ $resultado= $conn->query($consulta);
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="../administrador/index.php">
                     <img
-                      src="../img/logo check inventory.png"
+                      src="../../img/logo check inventory.png"
                       alt=""
                       width="100"
                       height="100"
@@ -60,7 +60,7 @@ $resultado= $conn->query($consulta);
                   
                 <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
                  <a href="../Home/home.html
-                 "> <button type="button" class="btn btn-lg btn-outline-primary ">Salir
+                 "> <button type="button" class="btn btn-lg btn-outline-primary "><a href="http://localhost/Facultad/Global_lab3/Login/index.html"> <?php  session_abort()?></a> Salir
                 </button>
                 </a>
             </div>

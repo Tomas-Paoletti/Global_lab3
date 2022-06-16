@@ -60,7 +60,7 @@ if(!isset($_SESSION['login'])){
             <div class="container-fluid">
                 <a class="navbar-brand" href="../Home/home.html">
                     <img
-                      src="../img/logo check inventory.png"
+                      src="../../img/logo check inventory.png"
                       alt=""
                       width="100"
                       height="100"

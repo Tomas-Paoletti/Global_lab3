@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['login'])){
-    header("location:../Login/login.html");
+    header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
   }
 $dbhost= "localhost";
 $dbuser ="root";
