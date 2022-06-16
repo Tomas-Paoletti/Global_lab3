@@ -25,7 +25,11 @@ if(isset($_POST['modificar'])){
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
-$foto=$conn->real_escape_string(file_get_contents($_FILES['Foto']['tmp_name']));
+if($_FILES==0){
+  $foto= '../../img/productos-Foto (1).bin';
+}else{
+$foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
+}
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
@@ -34,7 +38,7 @@ $actualizar= $conn->query($actualizaq);
 header("location:index.php");
 
 }
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['administrador'])){
   header("location:../Login/login.html");
 }
 ?>
@@ -58,7 +62,7 @@ if(!isset($_SESSION['login'])){
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../Home/home.html">
+                <a class="navbar-brand" href="../../Home/home.html">
                     <img
                       src="../../img/logo check inventory.png"
                       alt=""

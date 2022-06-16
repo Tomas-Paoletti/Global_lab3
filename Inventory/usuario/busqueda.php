@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['administrador'])){
+if(!isset($_SESSION['usuario'])){
   header("location:http://localhost/Facultad/Global_lab3/Login/index.html");
 }
 
@@ -58,7 +58,7 @@ $resultado= $conn->query($consulta);
               
                 <div class="d-flex">
                   
-                <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
+              
                  <a href="../../Home/home.html
                  "> <button type="button" class="btn btn-lg btn-outline-primary "><a href="http://localhost/Facultad/Global_lab3/Login/index.html"> <?php  session_abort()?></a> Salir
                 </button>
@@ -89,7 +89,7 @@ $resultado= $conn->query($consulta);
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Marca</th>
                         <th class="text-center">Precio</th>
-                        <th class="text-center">Opciones</th>
+                     
                   </thead>
                   <tbody>
                     <?php
@@ -100,7 +100,7 @@ $resultado= $conn->query($consulta);
                         <td class="text-center"> <?php echo $row['Descripcion'];?></td>
                         <td class="text-center"> <?php echo $row['Marca'];?></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
-                        <td class="text-center">  <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?>">Borrar</a></td>
+                       
                       </tr>
                     <?php } ?>
                   </tbody>

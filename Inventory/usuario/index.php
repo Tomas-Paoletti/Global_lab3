@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['login'])){
+if(isset($_SESSION['usuario'])){
   $dbhost= "localhost";
   $dbuser ="root";
   $dbpass ="";
@@ -17,6 +17,11 @@ if(isset($_SESSION['login'])){
 }else{
   header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
 }
+
+$cant_filas= mysqli_num_rows($guardar);
+$articulos_por_pagina=6;
+
+$paginas= ceil( $cant_filas/$articulos_por_pagina);
 
 
 
@@ -80,12 +85,35 @@ if(isset($_SESSION['login'])){
                         <th class="text-center">Foto</th>
                         <th class="text-center">Precio</th>
                         <th class="text-center">Cantidad</th>
-                        <th class="text-center">Opciones</th>
+                     
                         
                   </thead>
                   <tbody>
+
                     <?php
-                    while($row =$guardar->fetch_assoc()){ ?>
+                    if(!$_GET){
+                      header('location: index.php?pagina=1');
+                    }
+
+                    $contador_paginacion=  ($_GET['pagina']-1)*$articulos_por_pagina;
+                   /* echo $contador_paginacion;
+                      $contador_paginacion= number_format($contador_paginacion);
+
+                    $sql_productos="SELECT * FROM alumnos order by alumno_id DESC LIMIT $contador_paginacion, $articulos_por_pagina ";
+                    $sql_productos->bind_param('i', $contador_paginacion);
+                
+                    $productos_de_la_pag = $conn->$sql_productos;
+                    
+                    $resultado_productos= $productos_de_la_pag-> fetch_all();*/
+                    $start_from = ($_GET['pagina']-1)*$articulos_por_pagina;
+
+                    $query = "SELECT * FROM productos order by id DESC LIMIT $start_from, $articulos_por_pagina";
+                  $result = mysqli_query($conn, $query);
+
+                   //while($row =$productos_de_la_pag->fetch_assoc()){ 
+                 foreach($result as $row):
+                
+                     ?>
                       <tr>
                         <td class="text-center"> <?php echo $row['id'];?></td>
                         <td class="text-center"> <?php echo $row['Producto'];?></td>
@@ -95,12 +123,23 @@ if(isset($_SESSION['login'])){
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
                         <td class="text-center"> <?php echo $row['Cantidad'];?></td>
                         <!-- pasamos los datos de esa fila a travez del campo id -->
-                        <td class="text-center"> <a href="editar.php?id=<?php echo $row['id']  ?>">Editar-<a href="borrar.php?id=<?php echo $row['id']?> ">Borrar</a></td>
+                      
                       </tr>
-                    <?php } ?>
+                    <?php endforeach ?>
                   </tbody>
               </table>
 
+              
+              <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item <?php echo $_GET['pagina']<=$paginas? 'disabled': '' ?>"><a class="page-link" href=" <?php echo 'index.php?pagina='.$_GET['pagina']-1 ?> ">Anterior</a></li>
+   <?php for ($i=0; $i < $paginas; $i++):  ?>
+    <li class="page-item <?php echo $_GET['pagina']==$i+1  ? 'active' : ''  ?>"> <!--esta linea de codigo php muestra en que pagina estamos -->
+      <a class="page-link" href="index.php?pagina=<?php echo $i+1?>"><?php echo $i+1?></a></li>
+    <?php endfor ?>
+    <li class="page-item <?php echo $_GET['pagina']>=$paginas? 'disabled': '' ?>"><a class="page-link" href="<?php echo 'index.php?pagina='.$_GET['pagina']+1 ?>">Siguiente</a></li>
+  </ul>
+</nav>
           </div>
 
     

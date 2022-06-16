@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['login'])){
+if(isset($_SESSION['administrador'])){
   $dbhost= "localhost";
   $dbuser ="root";
   $dbpass ="";
@@ -41,7 +41,7 @@ if(isset($_SESSION['login'])){
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/Home/home.html">
+                <a class="navbar-brand" href="../../Home/home.html">
                     <img
                       src="../../img/logo check inventory.png"
                       alt=""
@@ -57,7 +57,7 @@ if(isset($_SESSION['login'])){
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                  <a href="../Home/home.html"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
+                  <a href="../../Home/home.html"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
                   <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
             </div>
               </div>

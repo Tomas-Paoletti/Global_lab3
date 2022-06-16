@@ -22,15 +22,15 @@ $arr=mysqli_fetch_row($query);
 $nro = mysqli_num_rows($query);
 if($nro == 1){
     if($arr[3]==1){
-   $_SESSION['login']='administrador';
+   $_SESSION['administrador']='login';
     header("location:../Inventory/administrador/index.php");}
     if($arr[3]==2){
-        $_SESSION['login']='usuario';
+        $_SESSION['usuario']='login';
         header("location: http://localhost/Facultad/Global_lab3/Inventory/usuario/index.php");
     }
 }else{
     
-    echo "<script>alert('Hola');
+    echo "<script>alert('Error nombre o usuario incorrecto');
         window.location =  'http://localhost/Facultad/Global_lab3/Login/index.html';  
     </script>";
  //   header("location: http://localhost/Facultad/Global_lab3/Login/index.html");

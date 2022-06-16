@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['administrador'])){
   header("location:../Login/login.html");
 }
 $dbhost= "localhost";
@@ -25,7 +25,12 @@ $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 //$foto=$conn->real_escape_string($_POST);
+
+if(empty($_FILES==0)){
+  $foto= '../../img/productos-Foto (1).bin';
+}else{
 $foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
+}
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
 //hacer query para modifiacr los datos de la tabla
@@ -55,7 +60,7 @@ header("location:index.php");
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../administrador/index.php">
+                <a class="navbar-brand" href="../../Home/home.html">
                     <img
                       src="../../img/logo check inventory.png"
                       alt=""
@@ -71,9 +76,9 @@ header("location:index.php");
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                 <a href="../Home/home.html"> <button  type="button" class="btn btn-lg btn-outline-primary "></a>
+                 <a href="../../Home/home.html"> <button  type="button" class="btn btn-lg btn-outline-primary ">
                   Salir
-                </button>
+                </button></a>
             </div>
               </div>
             </div>

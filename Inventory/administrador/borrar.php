@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['administrador'])){
     header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
   }
 $dbhost= "localhost";
