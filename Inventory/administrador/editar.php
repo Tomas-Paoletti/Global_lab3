@@ -25,7 +25,7 @@ if(isset($_POST['modificar'])){
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
-if($_FILES==0){
+if(!isset($_POST['Foto'])){
   $foto= '../../img/productos-Foto (1).bin';
 }else{
 $foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));

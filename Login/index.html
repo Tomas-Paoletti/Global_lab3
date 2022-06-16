@@ -42,7 +42,7 @@
           <div class="px-lg-5 py-lg-4 p-4 w-100 align-self-center">
             <h1 class="font-weight-bold mb-4 titulo">Bienvenido</h1>
 
-            <form method="POST" action="login.php" >
+            <form  method="POST" action="login.php" >
               <div class="mb-4">
                 <label
                   for="exampleInputEmail1"
@@ -52,6 +52,7 @@
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   class="form-control bg-dark-x border-0"
                   placeholder="Ingresa tu Email"
                   id="exampleInputEmail1"
@@ -67,6 +68,7 @@
                 <input
                   type="password"
                   name="contraseña"
+                  id="contraseña"
                   class="form-control bg-dark-x border-0 mb-2"
                   placeholder="Ingresa tu Contraseña"
                   id="exampleInputPassword1"
@@ -81,10 +83,11 @@
         </div>
       </div>
     </section>
-
+      <script src="./SesionIncorrecta.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
