@@ -47,7 +47,7 @@ $paginas= ceil( $cant_filas/$articulos_por_pagina);
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/Home/home.html">
+                <a class="navbar-brand" href="../../Home/home.html">
                     <img
                       src="../../img/logo check inventory.png"
                       alt=""
@@ -62,7 +62,7 @@ $paginas= ceil( $cant_filas/$articulos_por_pagina);
               
                 <div class="d-flex">
                   
-                 <a href="../administrador/busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
+                 <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
                   <a href="../../Home/home.html" ,<?php session_abort();?> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
                  
             </div>
@@ -131,9 +131,9 @@ $paginas= ceil( $cant_filas/$articulos_por_pagina);
               </table>
 
               
-              <nav aria-label="Page navigation example">
+              <nav aria-label="Page navigation example " class="paginas">
   <ul class="pagination">
-    <li class="page-item <?php echo $_GET['pagina']<=$paginas? 'disabled': '' ?>"><a class="page-link" href=" <?php echo 'index.php?pagina='.$_GET['pagina']-1 ?> ">Anterior</a></li>
+    <li class="page-item <?php echo $_GET['pagina']<$paginas? 'disabled': '' ?>"><a class="page-link" href=" <?php echo 'index.php?pagina='.$_GET['pagina']-1 ?> ">Anterior</a></li>
    <?php for ($i=0; $i < $paginas; $i++):  ?>
     <li class="page-item <?php echo $_GET['pagina']==$i+1  ? 'active' : ''  ?>"> <!--esta linea de codigo php muestra en que pagina estamos -->
       <a class="page-link" href="index.php?pagina=<?php echo $i+1?>"><?php echo $i+1?></a></li>

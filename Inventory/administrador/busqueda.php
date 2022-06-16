@@ -60,7 +60,7 @@ $resultado= $conn->query($consulta);
                   
                 <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
                  <a href="../../Home/home.html
-                 "> <button type="button" class="btn btn-lg btn-outline-primary "><a href="http://localhost/Facultad/Global_lab3/Login/index.html"> <?php  session_abort()?></a> Salir
+                 "> <button type="button" class="btn btn-lg btn-outline-primary ">  Salir
                 </button>
                 </a>
             </div>
