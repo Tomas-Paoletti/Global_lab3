@@ -33,6 +33,6 @@ if($nro == 1){
     echo "<script>alert('Error nombre o usuario incorrecto');
         window.location =  'http://localhost/Facultad/Global_lab3/Login/index.html';  
     </script>";
- //   header("location: http://localhost/Facultad/Global_lab3/Login/index.html");
+ 
 }
 ?> 

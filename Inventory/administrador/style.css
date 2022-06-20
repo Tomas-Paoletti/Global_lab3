@@ -47,3 +47,7 @@ input {
   height: 2.5rem;
   border-radius: 15px !important;
 }
+
+.paginas {
+  margin-left: 10% !important;
+}
