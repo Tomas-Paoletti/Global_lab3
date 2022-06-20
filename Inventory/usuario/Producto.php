@@ -62,8 +62,10 @@ if(!isset($_SESSION['usuario'])){
               </div>
             </div>
           </nav>
+          <br>
+          <br>
 
-          <div class="card text-center ms-10" style="width: 18rem;">
+          <div class="card text-center ms-10 producto-div" style="width: 18rem;">
   <img src="data:image/jpg;base64 ,<?php echo base64_encode($dato['Foto']);?> " class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Producto: <?php echo $dato['Producto'] ?></h5>
@@ -74,10 +76,14 @@ if(!isset($_SESSION['usuario'])){
     <li class="list-group-item">Precio: <?php echo $dato['Precio'] ?></li>
     <li class="list-group-item">Cantidad: <?php echo $dato['Cantidad'] ?></li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+  
+</div>
+
+<br>
+<br>
+
+<div >
+  <a href="./index.php"><button type="button" class="btn volver-boton btn-outline-success">Volver</button></a>
 </div>
 
 </body>

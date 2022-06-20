@@ -47,6 +47,14 @@ input {
   height: 2.5rem;
   border-radius: 15px !important;
 }
-.paginas{
+.paginas {
   margin-left: 10% !important;
+}
+.producto-div {
+  width: 50% !important;
+  margin: 0 auto !important;
+}
+
+.volver-boton {
+  margin-left: 47.5% !important;
 }
