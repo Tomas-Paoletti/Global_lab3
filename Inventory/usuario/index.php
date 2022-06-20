@@ -103,6 +103,7 @@ if(isset($_GET['idcolumn'])){
                         <th class="text-center">Foto</th>
                         <th class="text-center">Precio</th>
                         <th class="text-center">Cantidad</th>
+                        <th class="text-center">Opciones</th>
                      
                         
                   </thead>
@@ -132,6 +133,7 @@ if(isset($_GET['idcolumn'])){
                         <td class="text-center "> <img  width="100px" src="data:image/jpg;base64 ,<?php echo base64_encode($row['Foto']);?> " /></td>
                         <td class="text-center"> <?php echo $row['Precio'];?></td>
                         <td class="text-center"> <?php echo $row['Cantidad'];?></td>
+                        <td class="text-center"> <a href="Producto.php?id=<?php echo $row['id']  ?>">-Ver-</td>
                         <!-- pasamos los datos de esa fila a travez del campo id -->
                       
                       </tr>
