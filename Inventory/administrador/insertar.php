@@ -26,8 +26,8 @@ $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
 //$foto=$conn->real_escape_string($_POST);
 
-if(!isset($_POST['Foto'])){
-  $foto= '../../img/productos-Foto (1).jpg';
+if(!isset($_FILES['Foto'])){
+  $foto= '../../img/foto por defecto.jpg';
 }else{
 $foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
 }
@@ -115,7 +115,7 @@ header("location:index.php");
         </div>
         <div class="row">
         <br>
-           <input type="file" name="Foto"  placeholder="Insertar imagen del producto" >
+           <input type="file" name="Foto"  placeholder="Insertar imagen del producto" required >
            
         </div>
         <div class="row">

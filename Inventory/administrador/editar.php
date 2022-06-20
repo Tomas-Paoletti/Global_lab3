@@ -25,7 +25,7 @@ if(isset($_POST['modificar'])){
 $nProducto= $conn->real_escape_string($_POST['Producto']);
 $descripcion= $conn->real_escape_string($_POST['Descripcion']);
 $marca= $conn->real_escape_string($_POST['Marca']);
-if(!isset($_POST['Foto'])){
+if(!isset($_FILES['Foto'])){
   $foto= '../../img/productos-Foto (1).bin';
 }else{
 $foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
@@ -109,7 +109,7 @@ if(!isset($_SESSION['administrador'])){
         <div class="row">
         <img  width="100px" src="data:image/jpg;base64 ,<?php echo base64_encode($dato['Foto']);?> " />
         
-        <input type="file" name="Foto">
+        <input type="file" name="Foto" required>
         </div>
         <div class="row">
            <input type="number" name="Precio" value="<?php echo $dato['Precio']?>" placeholder="Precio del producto" required>

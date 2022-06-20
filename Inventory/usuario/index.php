@@ -24,8 +24,18 @@ $articulos_por_pagina=6;
 
 $paginas= ceil( $cant_filas/$articulos_por_pagina);
 
+if(isset($_GET['Producto'])){
+  $nombre = $_GET['Producto'];
+}else{
+ $nombre= 'ASC';
+}
+if(isset($_GET['idcolumn'])){
+  $idcolumn = $_GET['idcolumn'];
+}else{
+ $idcolumn= 'id';
+}
 
-
+//$ordenamiento= $conn->query("SELECT * FROM productos ORDER BY $idcolumn $nombre");
 ?>
 
 
@@ -77,10 +87,17 @@ $paginas= ceil( $cant_filas/$articulos_por_pagina);
 
           <div class="table-responsive table-hover table-dark" id="Tabla-productos">
             <br>
+            <?php 
+              if($nombre=='DESC'){
+                   $nombre = 'ASC' ;
+              } else if($nombre = 'ASC'){
+                $nombre='DESC';
+              }
+             //?if :no?>
               <table class="table ">
                   <thead class="text-muted table-dark">
-                        <th class="text-center">ID</th>
-                        <th class="text-center">Nombre Producto</th>
+                        <th class="text-center"> <a href="?idcolumn=id&Producto=<?php echo $nombre?>&pagina= <?php echo $_GET['pagina'] ?>"> ID</a></th>
+                        <th class="text-center"><a href="?idcolumn=Producto&Producto=<?php echo $nombre?>&pagina=<?php echo $_GET['pagina'] ?>"> Nombre Producto</a></th>
                         <th class="text-center">Descripcion</th>
                         <th class="text-center">Marca</th>
                         <th class="text-center">Foto</th>
@@ -92,23 +109,15 @@ $paginas= ceil( $cant_filas/$articulos_por_pagina);
                   <tbody>
 
                     <?php
-                    if(!$_GET){
+                    if(!$_GET['pagina']){
                       header('location: index.php?pagina=1');
                     }
 
                     $contador_paginacion=  ($_GET['pagina']-1)*$articulos_por_pagina;
-                   /* echo $contador_paginacion;
-                      $contador_paginacion= number_format($contador_paginacion);
-
-                    $sql_productos="SELECT * FROM alumnos order by alumno_id DESC LIMIT $contador_paginacion, $articulos_por_pagina ";
-                    $sql_productos->bind_param('i', $contador_paginacion);
-                
-                    $productos_de_la_pag = $conn->$sql_productos;
-                    
-                    $resultado_productos= $productos_de_la_pag-> fetch_all();*/
+                 
                     $start_from = ($_GET['pagina']-1)*$articulos_por_pagina;
 
-                    $query = "SELECT * FROM productos order by id DESC LIMIT $start_from, $articulos_por_pagina";
+                    $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $start_from, $articulos_por_pagina";
                   $result = mysqli_query($conn, $query);
 
                    //while($row =$productos_de_la_pag->fetch_assoc()){ 
