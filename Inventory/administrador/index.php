@@ -31,7 +31,7 @@ if(!isset($_SESSION['administrador'])){
   }else{
    $idcolumn= 'id';
   }
-  
+  //lo que hacemos en estos 2 if es obtenr las variable spara mas abajo  ordenar la query sql
 
 
 
@@ -72,7 +72,7 @@ if(!isset($_SESSION['administrador'])){
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                  <a href="../../Home/home.html"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
+                  <a href="./logout.php"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
                   <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
             </div>
               </div>
@@ -90,7 +90,7 @@ if(!isset($_SESSION['administrador'])){
               if($nombre=='DESC'){
                    $nombre = 'ASC' ;
               } else if($nombre = 'ASC'){
-                $nombre='DESC';
+                $nombre='DESC';// aqui lo que hacemos es ordenar de manera descendente o ascendente segun nos traiga el get
               } ?>
               <table class="table ">
                   <thead class="text-muted table-dark" >
@@ -110,11 +110,11 @@ if(!isset($_SESSION['administrador'])){
                     header('location: index.php?pagina=1');
                   }
 
-                  $contador_paginacion=  ($_GET['pagina']-1)*$articulos_por_pagina;
                
-                  $start_from = ($_GET['pagina']-1)*$articulos_por_pagina;
+               
+                  $iniciar_paginacion = ($_GET['pagina']-1)*$articulos_por_pagina;
 
-                  $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $start_from, $articulos_por_pagina";
+                  $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $iniciar_paginacion, $articulos_por_pagina";
                 $result = mysqli_query($conn, $query);
 
                  //while($row =$productos_de_la_pag->fetch_assoc()){ 

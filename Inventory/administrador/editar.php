@@ -13,12 +13,12 @@ $conn= mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 if(!$conn){
     die("no hay conexion: ".mysqli_connect_error());
 }
-$id= $_REQUEST['id'];
+$id= $_REQUEST['id'];//obtiene el id desde la url
 $modificar= "SELECT * FROM productos WHERE id='$id' ";
 
 $m = $conn->query($modificar);
 $dato = $m->fetch_array();
-
+//ver si sacamos los$conn
 if(isset($_POST['modificar'])){
     //extraer los datos del formulario 
 //$id= $conn->$_REQUEST['id'];
@@ -77,13 +77,7 @@ if(!isset($_SESSION['administrador'])){
               
                 <div class="d-flex">
                   
-                 <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
-                  <button
-                  type="button"
-                  class="btn btn-lg btn-outline-primary "
-                >
-                  Salir
-                </button>
+                <a href="./logout.php"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
             </div>
               </div>
             </div>

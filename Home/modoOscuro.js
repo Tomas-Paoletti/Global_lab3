@@ -13,7 +13,7 @@ const elegirTema = (theme) => {
 };
 
 slider.addEventListener("click", () => {
-  let switchtema = localStorage.getItem("theme") === "dark" ? "light" : "dark";
+  let switchtema = localStorage.getItem("theme") === "dark" ? "light" : "dark";//? si : sino 
   elegirTema(switchtema);
 });
 

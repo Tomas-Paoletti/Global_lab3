@@ -76,9 +76,7 @@ header("location:index.php");
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                 <a href="../../Home/home.html"> <button  type="button" class="btn btn-lg btn-outline-primary ">
-                  Salir
-                </button></a>
+                 <a href="./logout.php"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
             </div>
               </div>
             </div>
@@ -115,7 +113,7 @@ header("location:index.php");
         </div>
         <div class="row">
         <br>
-           <input type="file" name="Foto"  placeholder="Insertar imagen del producto" required >
+           <input type="file" name="Foto"  placeholder="Insertar imagen del producto" required  >
            
         </div>
         <div class="row">

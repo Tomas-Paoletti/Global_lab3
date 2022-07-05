@@ -73,7 +73,7 @@ if(isset($_GET['idcolumn'])){
                 <div class="d-flex">
                   
                  <a href="busqueda.php"> <button class="btn btn-lg btn-outline-success" type="submit">Buscar</button></a>
-                  <a href="../../Home/home.html" ,<?php session_abort();?> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
+                 <a href="./logout.php"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
                  
             </div>
               </div>
@@ -114,11 +114,11 @@ if(isset($_GET['idcolumn'])){
                       header('location: index.php?pagina=1');
                     }
 
-                    $contador_paginacion=  ($_GET['pagina']-1)*$articulos_por_pagina;
+                  
                  
-                    $start_from = ($_GET['pagina']-1)*$articulos_por_pagina;
+                    $iniciar_paginacion = ($_GET['pagina']-1)*$articulos_por_pagina;
 
-                    $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $start_from, $articulos_por_pagina";
+                    $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $iniciar_paginacion, $articulos_por_pagina";
                   $result = mysqli_query($conn, $query);
 
                    //while($row =$productos_de_la_pag->fetch_assoc()){ 

@@ -59,10 +59,7 @@ $resultado= $conn->query($consulta);
                 <div class="d-flex">
                   
                 <a href="insertar.php"> <button class="btn btn-lg btn-outline-success" type="submit">Agregar</button></a>
-                 <a href="../../Home/home.html
-                 "> <button type="button" class="btn btn-lg btn-outline-primary ">  Salir
-                </button>
-                </a>
+                <a href="./logout.php"> <button type="button"class="btn btn-lg btn-outline-primary ">Salir</button></a>
             </div>
               </div>
             </div>
