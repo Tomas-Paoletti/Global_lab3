@@ -29,7 +29,7 @@ $marca= $conn->real_escape_string($_POST['Marca']);
 if(!isset($_FILES['Foto'])){
   $foto= '../../img/foto por defecto.jpg';
 }else{
-$foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));
+$foto=addslashes(file_get_contents($_FILES['Foto']['tmp_name']));//addslashes lo que hace es capar los stringsa
 }
 $precio= $conn->real_escape_string($_POST['Precio']);
 $cantidad= $conn->real_escape_string($_POST['Cantidad']);
@@ -87,7 +87,7 @@ header("location:index.php");
               <h1>Agregar producto</h1>
           </div>
 
-         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+         <form action="<?php echo $_SERVER['PHP_SELF']//manda el formulario a la misma pagina ?>" method="post" enctype="multipart/form-data">
         <div class="row">
            
             <input type="text" name="Producto"  class="form-control" placeholder="Nombre del producto" required>

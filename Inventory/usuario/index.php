@@ -119,7 +119,7 @@ if(isset($_GET['idcolumn'])){
                     $iniciar_paginacion = ($_GET['pagina']-1)*$articulos_por_pagina;
 
                     $query = "SELECT * FROM productos ORDER BY $idcolumn $nombre LIMIT $iniciar_paginacion, $articulos_por_pagina";
-                  $result = mysqli_query($conn, $query);
+                    $result = $conn ->query( $query);
 
                    //while($row =$productos_de_la_pag->fetch_assoc()){ 
                  foreach($result as $row):
