@@ -90,7 +90,7 @@ $resultado= $conn->query($consulta);
                   </thead>
                   <tbody>
                     <?php
-                    while($row =$resultado->fetch_assoc()//fetch_assoc devuelve un array asociado a la filas obtenidas){ ?>
+                    while($row =$resultado->fetch_assoc()){//fetch_assoc devuelve un array asociado a la filas obtenidas){ ?>
                       <tr>
                         <td class="text-center"> <?php echo $row['id'];?></td>
                         <td class="text-center"> <?php echo $row['Producto'];?></td>
